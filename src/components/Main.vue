@@ -84,12 +84,15 @@
         return this.isTrue ? 'writing-word' : 'writing-word bg-danger'
       },
       dks() {
-        return 300 - this.words.length
+        const totalWords = 300; // Kelime sayısı burada sabit
+        const remainingWords = this.words.length; // Kalan kelimeler
+        const timeElapsed = 60 - this.timer; // Geçen süre
+        return totalWords - remainingWords; // Kalan kelimeleri çıktı olarak döndür
       },
       truePercent() {
-        const percent = (100 / this.dks)
-        const val = (percent * this.trueCount)
-        return isNaN(val) ? 0 : val
+        const totalWords = this.trueCount + this.falseCount;
+        if (totalWords === 0) return 0; // Eğer hiç kelime girilmemişse, doğruluk yüzdesi 0
+        return Math.round((this.trueCount / totalWords) * 100); // Yüzdeyi virgülsüz olarak döndür
       }
     },
     mounted() {
@@ -97,11 +100,15 @@
     },
     methods: {
       newGame() {
-        this.getWords()
-        this.isFinish = false
-        this.timer = 60
-        this.isTrue = true
-        this.isRunning = false
+        this.writingWord = ''; // Önceki kelimeyi temizle
+        this.words = []; // Eski kelimeleri sıfırla
+        this.getWords(); // Yeni kelimeleri al
+        this.isFinish = false; // Oyun bitişi durumunu sıfırla
+        this.timer = 60; // Süreyi sıfırla
+        this.trueCount = 0; // Doğru kelime sayısını sıfırla
+        this.falseCount = 0; // Yanlış kelime sayısını sıfırla
+        this.isTrue = true; // Doğruluk durumunu sıfırla
+        this.isRunning = false; // Timer'ı sıfırla
       },
       getWords() {
         this.words = this.wordList.sort(() => Math.random() - 0.5).splice(0, 300)
