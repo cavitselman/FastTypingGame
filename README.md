@@ -1,6 +1,27 @@
-# FastTyping
+# Fast Typing Game
+This project is a "Fast Typing" application that allows users to test their typing speed. Users try to type randomly selected words correctly and quickly while racing against the clock. At the end of the game, the typing speed, accuracy rate, and the number of correct/incorrect words are displayed.
 
-This template should help get you started developing with Vue 3 in Vite.
+### Project Features:
+
+- **Typing Race:** Users type random words within 60 seconds.
+- **Accuracy Check:** The accuracy rate is calculated as the user types.
+- **Results Screen:** When time is up, the number of correct words, incorrect words, and the accuracy percentage are shown.
+- **New Game Option:** After the game ends, a new game can be started.
+
+## Technologies Used
+### Web Development:
+- **Vue.js:** The core structure and reactive features of the application were built using Vue.js framework.
+- **JavaScript:** Vanilla JavaScript was used for the timer and word validation functionality.
+
+### User Interface:
+- **Bootstrap:** Bootstrap framework was used to create a stylish and responsive user interface.
+- **CSS Flexbox and Grid:** Flexbox and Grid systems were used to make the design flexible and adaptive.
+
+### Data Management:
+- **JSON:** A JSON file was used to provide random words for the game. Words are fetched from this file and shuffled when the game starts.
+
+### Timer and API Operations:
+- **JavaScript setInterval:** The setInterval function was used for the timer functionality.
 
 ## Recommended IDE Setup
 
@@ -33,7 +54,7 @@ npm run build
 ```sh
 npm run lint
 ```
-<h2 align="center"> Project Images </h2>
+## Project Images 
 
 ![](./public/readme/1.jpg)
 ![](./public/readme/2.jpg)
